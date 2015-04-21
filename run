@@ -1,0 +1,3 @@
+#!/bin/bash
+ gdb simulation topology.in messages.in events.in
+

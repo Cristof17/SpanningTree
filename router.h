@@ -20,6 +20,10 @@ public:
        this-> tb = new table();
     }
 
+    if(this->links == NULL){
+    	this->links = new router*[20];
+    }
+
   }
 
   router(int id){
@@ -33,23 +37,23 @@ public:
        this-> tb = new table();
     }
 
+    if(this->links == NULL){
+       this->links = new router*[20];
+    }
   }
 
   /*
   Returns the router ID
   */
   int getID(){
-    return this->id ;
+    return id ;
   }
 
   /*
   Adds a direcly connect router to the current router
   */
   void addLink(router * link){
-    if(links == NULL){
-      links = new router*[20];
-    }
-    links[link->getID()] = link ;
+    this->links[link->getID()] = link ;
   }
 
   ~router(){

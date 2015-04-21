@@ -30,7 +30,7 @@ void init_sim(int argc, char **argv , router ** routers) {
    char line[80];
    fgets(line, 80,topologie_file );
    sscanf (line, "%d", &number_of_routers);
- 	 printf ("%d\n", number_of_routers);
+   printf ("%d\n", number_of_routers);
 
 
  	 routers = new router*[number_of_routers];
@@ -50,8 +50,11 @@ void init_sim(int argc, char **argv , router ** routers) {
      router * to = new router(r2);
      router * from = new router(r1);
 
+     routers[r2] = to ;
+     routers[r1] = from ;
+
      routers[r1] -> addLink(to);
-     routers[r1] -> addLink(from);
+     routers[r2] -> addLink(from);
 
    }
 
